@@ -24,23 +24,23 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 public class ProductResource {
 
     @Autowired
-    private ProductService ProductService;
+    private ProductService productService;
     
     @GetMapping
     public ResponseEntity<Page<ProductDTO>> findAll(Pageable pageable){
-        Page<ProductDTO> pages = ProductService.findAllPaged(pageable);
+        Page<ProductDTO> pages = productService.findAllPaged(pageable);
 
         return ResponseEntity.ok().body(pages);
     }
 
     @GetMapping(value = "/{id}")
     public ResponseEntity<ProductDTO> findById(@PathVariable Long id) {
-        return ResponseEntity.ok().body(ProductService.findById(id));
+        return ResponseEntity.ok().body(productService.findById(id));
     }
 
     @PostMapping
     public ResponseEntity<ProductDTO> insert(@RequestBody ProductDTO dto) {
-        ProductDTO ProductDTO = ProductService.insert(dto);
+        ProductDTO ProductDTO = productService.insert(dto);
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
             .buildAndExpand(ProductDTO.getId()).toUri();
         return ResponseEntity.created(uri).body(ProductDTO);
@@ -48,13 +48,13 @@ public class ProductResource {
 
     @PutMapping(value = "/{id}")
     public ResponseEntity<ProductDTO> update(@PathVariable Long id, @RequestBody ProductDTO dto) {
-        ProductDTO ProductDTO = ProductService.update(id, dto);
+        ProductDTO ProductDTO = productService.update(id, dto);
         return ResponseEntity.ok().body(ProductDTO);
     }
 
     @DeleteMapping(value = "/{id}")
     public ResponseEntity<ProductDTO> delete(@PathVariable Long id) {
-        ProductService.delete(id);
+        productService.delete(id);
         return ResponseEntity.noContent().build();
     }
 
