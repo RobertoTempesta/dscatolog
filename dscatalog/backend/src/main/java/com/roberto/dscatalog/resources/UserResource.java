@@ -2,6 +2,8 @@ package com.roberto.dscatalog.resources;
 
 import java.net.URI;
 
+import javax.validation.Valid;
+
 import com.roberto.dscatalog.dto.UserDTO;
 import com.roberto.dscatalog.dto.UserInsertDTO;
 import com.roberto.dscatalog.services.UserService;
@@ -40,7 +42,7 @@ public class UserResource {
     }
 
     @PostMapping
-    public ResponseEntity<UserDTO> insert(@RequestBody UserInsertDTO dto) {
+    public ResponseEntity<UserDTO> insert(@Valid @RequestBody UserInsertDTO dto) {
         UserDTO userDTO = productService.insert(dto);
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
             .buildAndExpand(userDTO.getId()).toUri();
@@ -48,7 +50,11 @@ public class UserResource {
     }
 
     @PutMapping(value = "/{id}")
-    public ResponseEntity<UserDTO> update(@PathVariable Long id, @RequestBody UserDTO dto) {
+    public ResponseEntity<UserDTO> update(
+        @PathVariable Long id, 
+        @Valid @RequestBody UserDTO dto
+        ) 
+    {
         UserDTO UserDTO = productService.update(id, dto);
         return ResponseEntity.ok().body(UserDTO);
     }

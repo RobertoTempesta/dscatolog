@@ -17,7 +17,6 @@ import javax.persistence.Table;
 
 import lombok.AccessLevel;
 import lombok.Data;
-import lombok.Getter;
 import lombok.Setter;
 
 @Data
@@ -40,9 +39,10 @@ public class Category implements Serializable {
     @Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
     private Instant updatedAt;
 
-    @Getter(AccessLevel.NONE)
-    @ManyToMany(mappedBy = "categories")
-    private Set<Product> products = new HashSet<>();
+    //Não funciona \_('-')_/
+    //@Setter(AccessLevel.NONE)
+    //@ManyToMany(mappedBy = "categories")
+    //private Set<Product> products = new HashSet<>();
 
     @PrePersist
     public void prePersist() {
