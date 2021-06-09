@@ -1,5 +1,6 @@
 package com.roberto.dscatalog.dto;
 
+import java.io.Serializable;
 import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
@@ -12,7 +13,9 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Getter @Setter
-public class ProductDTO {
+public class ProductDTO implements Serializable {
+
+    private static final long serialVersionUID = 1L;
     
     private Long id;
     private String name;
