@@ -6,14 +6,11 @@ import java.util.stream.Collectors;
 
 import javax.persistence.EntityNotFoundException;
 
-import com.roberto.dscatalog.dto.CategoryDTO;
 import com.roberto.dscatalog.dto.RoleDTO;
 import com.roberto.dscatalog.dto.UserDTO;
 import com.roberto.dscatalog.dto.UserInsertDTO;
-import com.roberto.dscatalog.entities.Category;
 import com.roberto.dscatalog.entities.Role;
 import com.roberto.dscatalog.entities.User;
-import com.roberto.dscatalog.repositories.CategoryRepository;
 import com.roberto.dscatalog.repositories.RoleRepository;
 import com.roberto.dscatalog.repositories.UserRepository;
 import com.roberto.dscatalog.services.exceptions.DataBaseException;
