@@ -9,6 +9,26 @@
             "mainClass": "com.roberto.dscatalog.DscatalogApplication",
             "projectName": "dscatalog",
             "args": ""
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-Bds03Application<bds03>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.devsuperior.bds03.Bds03Application",
+            "projectName": "bds03",
+            "args": ""
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-Bds04Application<bds04>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.devsuperior.bds04.Bds04Application",
+            "projectName": "bds04",
+            "args": ""
         }
     ]
 }
